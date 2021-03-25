@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{% static 'django-mailman3/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'postorius/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'postorius/libs/fonts/font-awesome/css/font-awesome.min.css' %}" type="text/css" media="all" />
-    {% block additionalcss %}{% endblock %}
+    {% block additionalcss %}
+    <link rel="stylesheet" href="{% static 'mmtheme/css/theme.css' %}">
+    {% endblock %}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,7 +24,6 @@
     <![endif]-->
 </head>
 <body>
-  <h1>Hi Craig!</h1>
   <nav class="navbar navbar-expand-md navbar-light bg-light navbar-default">
     <div class="container">
             <div class="navbar-header">
@@ -123,21 +124,22 @@
         {% block content %}{% endblock content %}
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="text-center">
-                <a href="https://postorius.readthedocs.org">{% trans 'Postorius Documentation' %}</a>
-                &bull;
-                <a href="http://list.org">GNU Mailman</a>
-                &bull;
-                {% trans 'Postorius Version' %} {{ POSTORIUS_VERSION }}
-                {% if mailman_day %}
-                &bull;
-                {% trans 'Happy Mailman Day!' %}
-                {% endif %}
-            </p>
+
+
+    <div class="container">
+        <div class="text-center">
+            <a href="https://postorius.readthedocs.org">{% trans 'Postorius Documentation' %}</a>
+            &bull;
+            <a href="http://list.org">GNU Mailman</a>
+            &bull;
+            {% trans 'Postorius Version' %} {{ POSTORIUS_VERSION }}
+            {% if mailman_day %}
+            &bull;
+            {% trans 'Happy Mailman Day!' %}
+            {% endif %}
         </div>
-    </footer>
+    </div>
+    {% include '../mmtheme/footer.html' %}
 
     <script src="{% static 'postorius/libs/jquery/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'postorius/libs/popperjs/popper-v1.11.0.min.js' %}"></script>
