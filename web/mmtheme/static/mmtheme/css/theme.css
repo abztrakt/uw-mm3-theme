@@ -1,3 +1,21 @@
+
+.bg-dark-purple {
+    background-color: #452a78 !important;
+}
 .bg-purple {
     background: #4d307f !important;
+}
+
+.axdd-thin-bar {
+    line-height: 40px;
+}
+
+.axdd-brand {
+    line-height: 65px;
+}
+
+.axdd-brand-logo {
+    background-repeat: no-repeat;
+    background-size: 45px;
+    background-position: right 20px bottom;
 }
