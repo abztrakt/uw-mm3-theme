@@ -25,10 +25,10 @@
 </head>
 <body class="m-0">
 
-  <div class="bg-light d-flex align-items-end flex-column axdd-topbar" style="min-height: 100vh">
+  <div class="d-flex align-items-end flex-column axdd-topbar" style="min-height: 100vh">
     <header class="w-100">
         <div class="bg-dark-purple axdd-topbar-thin small">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row" role="navigation">
 
             <ul class="col list-unstyled m-0 d-flex">
@@ -66,7 +66,7 @@
                         <li class="mr-3">
                             <a class="text-white text-nowrap" href="{% url LOGIN_URL %}?next={{ next|default:request.path|urlencode }}">
                             <span class="fa fa-sign-in"></span>
-                            {% trans 'Login' %}
+                            {% trans "Sign In" %}
                         </a>
                     </li>
                         <li>
@@ -78,7 +78,7 @@
                     {% endif %}
                 </ul>
 
-            <ul class="col list-unstyled m-0 d-flex justify-content-end">
+                <ul class="col list-unstyled m-0 d-flex justify-content-end">
                     <li class=""><a href="{% url 'list_index' %}" class="text-white text-nowrap">
                         <span class="fa fa-envelope"></span>
                         {% trans 'Lists' %}
@@ -116,14 +116,14 @@
         </div>
     </div>
     <div class="bg-purple axdd-topbar-brand">
-        <div class="container axdd-topbar-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
+        <div class="container-fluid axdd-topbar-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
             <a class="h3 text-white align-middle" href="{% url 'list_index' %}" style="text-decoration:none;">Mailman</a>
         </div>
     </div>
     </header>
     <div class="w-100 mt-3">
       
-        <div class="container" role="main">
+        <main class="container-fluid">
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }} fade show" role="alert">
                 {{ message }}
@@ -133,23 +133,15 @@
             </div>
             {% endfor %}
             {% block content %}{% endblock content %}
-        </div>
+        </main>
 
     </div>
 
 
     <div class="w-100 mt-auto pt-3 small" role="contentinfo">
-        <div class="container mb-2">
+        <div class="container-fluid mb-2">
             <div class="text-center text-muted">
-                <a href="https://postorius.readthedocs.org">{% trans 'Postorius Documentation' %}</a>
-                &bull;
-                <a href="http://list.org">GNU Mailman</a>
-                &bull;
-                {% trans 'Postorius Version' %} {{ POSTORIUS_VERSION }}
-                {% if mailman_day %}
-                &bull;
-                {% trans 'Happy Mailman Day!' %}
-                {% endif %}
+                {% trans 'UW Mailman powered by' %} <a href="https://postorius.readthedocs.org">Postorius</a> {% trans 'version' %} {{ POSTORIUS_VERSION }}.
             </div>
         </div>
         {% include '../mmtheme/footer.html' %}
