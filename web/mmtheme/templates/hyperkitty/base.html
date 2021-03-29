@@ -212,12 +212,16 @@
     </div> <!-- /container for content -->
 
 
-    <div class="container text-center">
-        <div class="text-muted">
+    
+<div class="small mt-4" role="contentinfo">
+    <div class="container mb-2">
+        <div class="text-center text-muted">
             {% trans 'Powered by' %} <a href="http://hyperkitty.readthedocs.org">HyperKitty</a> {% trans 'version' %} {{ HYPERKITTY_VERSION }}.
         </div>
     </div>
     {% include '../mmtheme/footer.html' %}
+</div>
+
     
     <script src="{% static 'hyperkitty/libs/jquery/jquery-1.10.1.min.js' %}"></script>
     <script src="{% static 'hyperkitty/libs/jquery/jquery-ui-1.10.3.custom.min.js' %}"></script>

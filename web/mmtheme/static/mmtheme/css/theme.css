@@ -1,4 +1,10 @@
+/*** base font ***/
 
+html {
+    font-size: 16px;
+}
+
+/*** colors ***/
 .bg-dark-purple {
     background-color: #452a78 !important;
 }
@@ -6,15 +12,22 @@
     background: #4d307f !important;
 }
 
-.axdd-thin-bar {
+/*** axdd topbar layout ***/
+
+.axdd-topbar {
+    min-width: 320px;
+  }
+
+.axdd-topbar-thin {
     line-height: 40px;
+    font-weight: 300 !important;
 }
 
-.axdd-brand {
+.axdd-topbar-brand {
     line-height: 65px;
 }
 
-.axdd-brand-logo {
+.axdd-topbar-logo {
     background-repeat: no-repeat;
     background-size: 45px;
     background-position: right 20px bottom;

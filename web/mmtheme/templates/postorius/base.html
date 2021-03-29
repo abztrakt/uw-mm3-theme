@@ -23,11 +23,13 @@
       <script src="{% static 'postorius/libs/respond/respond.min.js' %}"></script>
     <![endif]-->
 </head>
-<body>
-  <header>
-    <div class="bg-dark-purple axdd-thin-bar">
+<body class="m-0">
+
+  <div class="bg-light d-flex align-items-end flex-column axdd-topbar" style="min-height: 100vh">
+    <header class="w-100">
+        <div class="bg-dark-purple axdd-topbar-thin small">
         <div class="container">
-            <div class="row">
+            <div class="row" role="navigation">
 
             <ul class="col list-unstyled m-0 d-flex">
                     {% if user.is_authenticated %}
@@ -40,7 +42,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="{% url 'mm_user_profile' %}" class="dropdown-item">
-                                    <span class="fa fa-user"></span>
+                                    <span class="fa fa-user text-light"></span>
                                     {% trans 'Account' %}
                                 </a>
                                 <a href="{% url 'ps_user_profile' %}" class="dropdown-item">
@@ -113,41 +115,47 @@
             </div>
         </div>
     </div>
-    <div class="bg-purple axdd-brand">
-        <div class="container axdd-brand-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
-            <a class="h3 text-white align-middle" href="{% url 'list_index' %}">Mailman</a>
+    <div class="bg-purple axdd-topbar-brand">
+        <div class="container axdd-topbar-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
+            <a class="h3 text-white align-middle" href="{% url 'list_index' %}" style="text-decoration:none;">Mailman</a>
         </div>
     </div>
     </header>
-
-    <div class="container" role="main">
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} fade show" role="alert">
-            {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="w-100 mt-3">
+      
+        <div class="container" role="main">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% block content %}{% endblock content %}
         </div>
-        {% endfor %}
-        {% block content %}{% endblock content %}
+
     </div>
 
 
-
-    <div class="container">
-        <div class="text-center">
-            <a href="https://postorius.readthedocs.org">{% trans 'Postorius Documentation' %}</a>
-            &bull;
-            <a href="http://list.org">GNU Mailman</a>
-            &bull;
-            {% trans 'Postorius Version' %} {{ POSTORIUS_VERSION }}
-            {% if mailman_day %}
-            &bull;
-            {% trans 'Happy Mailman Day!' %}
-            {% endif %}
+    <div class="w-100 mt-auto pt-3 small" role="contentinfo">
+        <div class="container mb-2">
+            <div class="text-center text-muted">
+                <a href="https://postorius.readthedocs.org">{% trans 'Postorius Documentation' %}</a>
+                &bull;
+                <a href="http://list.org">GNU Mailman</a>
+                &bull;
+                {% trans 'Postorius Version' %} {{ POSTORIUS_VERSION }}
+                {% if mailman_day %}
+                &bull;
+                {% trans 'Happy Mailman Day!' %}
+                {% endif %}
+            </div>
         </div>
+        {% include '../mmtheme/footer.html' %}
     </div>
-    {% include '../mmtheme/footer.html' %}
+
+  </div>
 
     <script src="{% static 'postorius/libs/jquery/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'postorius/libs/popperjs/popper-v1.11.0.min.js' %}"></script>
