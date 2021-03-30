@@ -14,16 +14,19 @@
         <link rel="shortcut icon" href="{% static 'hyperkitty/img/favicon.ico' %}" />
         <link rel="stylesheet" href="{% static 'hyperkitty/libs/jquery/smoothness/jquery-ui-1.10.3.custom.min.css' %}" type="text/css" media="all" />
         <link rel="stylesheet" href="{% static 'hyperkitty/libs/fonts/font-awesome/css/font-awesome.min.css' %}" type="text/css" media="all" />
-        
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
+
         {% compress css %}
-        <link rel="stylesheet" href="{% static 'hyperkitty/libs/fonts/icomoon/icomoon.css' %}" type="text/css" media="all" />
-        <link rel="stylesheet" href="{% static 'hyperkitty/libs/fonts/droid/droid.css' %}" type="text/css" media="all" />        
+        <!--<link rel="stylesheet" href="{% static 'hyperkitty/libs/fonts/icomoon/icomoon.css' %}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{% static 'hyperkitty/libs/fonts/droid/droid.css' %}" type="text/css" media="all" /> -->        
         <link rel="stylesheet" href="{% static 'django-mailman3/css/main.css' %}" />
         <link rel="stylesheet" type="text/x-scss" media="all" href="{% static 'hyperkitty/sass/hyperkitty.scss' %}" />
         {% endcompress %}
+
         {% block additional_stylesheets %}
         <link rel="stylesheet" href="{% static 'mmtheme/css/theme.css' %}">
         {% endblock %}
+
         {% block head_feed %}{% endblock %}
         {% include 'hyperkitty/headers.html' %}
     </head>
@@ -35,15 +38,15 @@
     <div class="d-flex align-items-end flex-column axdd-topbar" style="min-height: 100vh">
         <header class="w-100">
             <div class="bg-dark-purple axdd-topbar-thin small">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row" role="navigation">
                         <ul class="col list-unstyled m-0 d-flex">
-                             {% if user.is_authenticated %}
+                             {% if not user.is_authenticated %}
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                <a href="#" class="dropdown-toggle text-white text-nowrap" data-toggle="dropdown"
                                 role="button" aria-haspopup="true" aria-expanded="false">
                                     {% gravatar user.email 20 %}
-                                    {{ user.username|truncatechars:"35" }}
+                                    {{ user.username|truncatechars:"35" }} mynetidxxxx
                                     <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -110,12 +113,12 @@
                 </div>
             </div>
             <div class="bg-purple axdd-topbar-brand">
-                <div class="container axdd-topbar-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
+                <div class="container-fluid axdd-topbar-logo" style="background-image: url('{% static '/mmtheme/images/w-logo-white.png' %}');">
                     <a class="h3 text-white align-middle" href="{% url 'hk_root' %}" style="text-decoration:none;">Mailman</a>
                 </div>
             </div>
             <div class="bg-light">
-                <div class="container py-2">
+                <div class="container-fluid py-2">
                     <div class="row justify-content-md-center">
                         <form name="search" method="get" action="{% url 'hk_search' %}" class="col-md-8" role="search">
                     {% if mlist %}<input type="hidden" name="mlist" value="{{ mlist.name }}" />{% endif %}
@@ -135,17 +138,12 @@
         </header>
 
         <div class="w-100 mt-3">
-            <main class="container">
+            <main class="container-fluid">
             {% block content %} {% endblock %}
             </main>
         </div>
   
         <div class="w-100 mt-auto pt-3 small" role="contentinfo">
-            <div class="container mb-2">
-                <div class="text-center text-muted">
-                    {% trans 'UW Mailman powered by' %} <a href="http://hyperkitty.readthedocs.org">HyperKitty</a> {% trans 'version' %} {{ HYPERKITTY_VERSION }}.
-                </div>
-            </div>
             {% include '../mmtheme/footer.html' %}
         </div>
     </div>

@@ -32,3 +32,13 @@ html {
     background-size: 45px;
     background-position: right 20px bottom;
 }
+
+
+.gravatar {
+    vertical-align: sub;
+}
+
+.fa-comment:before, .fa-envelope:before {
+    color: #fff;
+    font-size: inherit;
+}
