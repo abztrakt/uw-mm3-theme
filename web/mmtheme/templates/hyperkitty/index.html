@@ -15,42 +15,42 @@
 
 <div class="row">
 
-    <div class="col-12">
+    <div class="col d-flex flex-wrap justify-content-between">
     
-        <h1 class="h3">{% trans 'Available lists' %}</h1>
+        <h1 class="text-nowrap">{% trans 'Available lists' %}</h1>
 
-        <ul class="nav nav-pills justify-content-center small mb-3" role="navigation">
-            <li class="nav-item">
+        <ul class="list-inline small mb-3" role="navigation">
+            <li class="list-inline-item">
      
                 <a href="{% url 'hk_root' %}?{% add_to_query_string "sort" "popular" %}"
-                class="nav-link {% if sort_mode == 'popular' %}active{% endif %}"
+                   class="p-2 badge {% if sort_mode == 'popular' %}badge-primary{% else %}badge-light{% endif %}"
                    data-toggle="tooltip" data-placement="bottom"
                    title="{% trans 'Sort by number of recent participants' %}"
                    >{% trans 'Most popular' %}</a>
         
             </li>
-            <li class="nav-item">
+            <li class="list-inline-item">
   
                <a href="{% url 'hk_root' %}?{% add_to_query_string "sort" "active" %}"
-                class="nav-link {% if sort_mode == 'active' %}active{% endif %}"
+                class="p-2 badge {% if sort_mode == 'active' %}badge-primary{% else %}badge-light{% endif %}"
                   data-toggle="tooltip" data-placement="bottom"
                   title="{% trans 'Sort by number of recent discussions' %}"
                   >{% trans 'Most active' %}</a>
      
             </li>
-            <li class="nav-item">
+            <li class="list-inline-item">
       
                <a href="{% url 'hk_root' %}?{% add_to_query_string "sort" "name" %}"
-               class="nav-link {% if sort_mode == 'name' %}active{% endif %}"
+               class="p-2 badge {% if sort_mode == 'name' %}badge-primary{% else %}badge-light{% endif %}"
                   data-toggle="tooltip" data-placement="bottom"
                   title="{% trans 'Sort alphabetically' %}"
                   >{% trans 'By name' %}</a>
        
             </li>
-            <li class="nav-item">
+            <li class="list-inline-item">
       
                 <a href="{% url 'hk_root' %}?{% add_to_query_string "sort" "creation" %}"
-                class="nav-link {% if sort_mode == 'creation' %}active{% endif %}"
+                class="p-2 badge {% if sort_mode == 'creation' %}badge-primary{% else %}badge-light{% endif %}"
                    data-toggle="tooltip" data-placement="bottom"
                    title="{% trans 'Sort by list creation date' %}"
                    >{% trans 'Newest' %}</a>
