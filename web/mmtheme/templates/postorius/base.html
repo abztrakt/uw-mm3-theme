@@ -40,12 +40,12 @@
                                 {{ user.username|truncatechars:"35" }} mynetidxxxx
                                 <span class="caret"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{% url 'mm_user_profile' %}" class="dropdown-item">
+                            <div class="dropdown-menu">
+                                <a href="{% url 'mm_user_profile' %}" class="dropdown-item text-nowrap">
                                     <span class="fa fa-user"></span>
                                     {% trans 'Account' %}
                                 </a>
-                                <a href="{% url 'ps_user_profile' %}" class="dropdown-item">
+                                <a href="{% url 'ps_user_profile' %}" class="dropdown-item text-nowrap">
                                     <span class="fa fa-cog"></span>
                                     {% trans 'Mailman settings' %}
                                 </a>
