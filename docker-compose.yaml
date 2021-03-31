@@ -39,8 +39,8 @@ services:
     - SECRET_KEY=changemetosomethingsecret
     - UWSGI_STATIC_MAP=/static=/opt/mailman-web-data/static
     ports:
-    - "8000:8000"
-    - "8080:8080"
+    - "8010:8000"
+    - "8090:8080"
     networks:
       mailman:
         ipv4_address: 172.19.199.3
