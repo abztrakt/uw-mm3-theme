@@ -4,9 +4,10 @@
 .axdd-brand {
     display: inline-block;
     background-repeat: no-repeat;
-    background-position: left;
-    background-size: 30px;
+    background-position: bottom left;
+    background-size: 45px;
     width: 100px;
-    padding-left: 40px;
-    margin-right: 20px;
+    padding-left: 60px;
+    margin-right: 50px;
+    line-height: 40px;
 }
