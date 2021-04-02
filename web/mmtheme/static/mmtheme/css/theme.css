@@ -11,3 +11,11 @@
     margin-right: 50px;
     line-height: 40px;
 }
+
+.footer {
+    background-color: transparent !important;
+    border-top: none !important;
+    height: auto;
+    padding: 0;
+    text-align: initial;
+}
